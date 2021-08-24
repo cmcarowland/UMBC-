@@ -1,7 +1,7 @@
 /*
  * Raymond Rowland
  * 24AUG21
- * Create a program that calculates the coins needed to make change for the specified number of cents.
+ * Create a program that calculates three options for an appropriate tip to leave after a meal at a restaurant.
  */
 #include <iostream>
 #include <cmath>
@@ -23,69 +23,26 @@ void ClearInputStream()
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-bool ShouldRunAgain()
+void PrintTip(int tipPercentage, double costOfMeal)
 {
-    char response = 'y';
+    double tipAmount = costOfMeal * ((double)tipPercentage / 100);
     
-    cout << "Continue? (y/n): ";
-    cin.get(response);
-    ClearInputStream();
-    
-    if(tolower(response) == 'y')
-    {
-        cout << endl;
-        return true;
-    }
-        
-    return false;
-}
-
-int GetNumberOfQuarters(int &change)
-{
-    int quart = change / 25;
-    change -= quart * 25;
-    return quart;
-}
-
-int GetNumberOfDimes(int &change)
-{
-    int dime = change / 10;
-    change -= dime * 10;
-    return dime;
-}
-
-int GetNumberOfNickels(int &change)
-{
-    int nick = change / 5;
-    change -= nick * 5;
-    return nick;
-}
-
-void PrintChange(int change)
-{    
-    cout << setw(COL_WIDTH) << "Quarters:" << GetNumberOfQuarters(change) << endl;
-    cout << setw(COL_WIDTH) << "Dimes:" << GetNumberOfDimes(change) << endl;
-    cout << setw(COL_WIDTH) << "Nickels:" << GetNumberOfNickels(change) << endl;
-    cout << setw(COL_WIDTH) << "Pennies:" << change << endl << endl;
+    cout << left;
+    cout << endl << tipPercentage << "%" << endl;
+    cout << setw(COL_WIDTH) << "Tip Amount:" << RoundToTwoPlaces(tipAmount) << endl;
+    cout << setw(COL_WIDTH) << "Total Amount:" << RoundToTwoPlaces(costOfMeal + tipAmount) << endl;
 }
 
 int main()
 {
-    double numOfCents = 0;
+    double mealCost = 0;
     
-    cout << "Change Calculator\n\n";
+    cout << "Tip Calculator\n\n";
     
-    do
-    {
-        numOfCents = 0;
-    
-    cout << "Enter number of cents (0-99): ";
-    cin >> numOfCents;
-    ClearInputStream();
+    cout << "Cost of meal: ";
+    cin >> mealCost;
 
-    
-    PrintChange(numOfCents);
-    }while(ShouldRunAgain());
-    
-    cout << endl << "Bye!\n";
+    PrintTip(15, mealCost);
+    PrintTip(20, mealCost);
+    PrintTip(25, mealCost);
 }
