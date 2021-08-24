@@ -1,7 +1,7 @@
 /*
  * Raymond Rowland
  * 24AUG21
- * Create a program that calculates the coins needed to make change for the specified number of cents.
+ * Create a program that calculates the amount of time and fuel for a 1980 Cessna 172N to fly a specified distance.
  */
 #include <iostream>
 #include <cmath>
