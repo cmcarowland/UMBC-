@@ -1,7 +1,7 @@
 /*
  * Raymond Rowland
  * 24AUG21
- * 
+ * Circle program that loops until the user quits.
  */
 #include <iostream>
 #include <cmath>

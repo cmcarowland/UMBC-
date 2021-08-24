@@ -1,7 +1,8 @@
 /*
  * Raymond Rowland
  * 24AUG21
- * 
+ * Enhance the Future Value Program
+ * Modify the program to loop and show the future value for each year
  */
 #include <iostream>
 #include <cmath>
@@ -24,6 +25,8 @@ int main() {
         int years;
         cout << "Enter number of years:      ";
         cin >> years;
+        cin.ignore(100, '\n');
+        cout << endl;
 
         // convert yearly values to monthly values
         double monthly_rate = yearly_rate / 12 / 100;
@@ -32,16 +35,15 @@ int main() {
         // calculate future value
         double future_value = 0;
         for (int i = 1; i <= months; i++) {
-            future_value = (future_value + monthly_investment) *
-                (1 + monthly_rate);
+            future_value = (future_value + monthly_investment) * (1 + monthly_rate);
+            if(i % 12 == 0)
+            {
+                cout << "Year " << i / 12 << " Future Value = " << round(future_value * 100) / 100 << endl;
+            }
         }
 
-        // round to 2 decimal places and display
-        future_value = round(future_value * 100) / 100;
-        cout << "Future value:               " << future_value << "\n\n";
-
         // see if the user wants to continue
-        cout << "Continue? (y/n): ";
+        cout << endl << "Continue? (y/n): ";
         cin >> choice;
         cout << endl;
     }
