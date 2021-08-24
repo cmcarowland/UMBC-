@@ -8,13 +8,20 @@
 #include <iomanip>
 #include <limits>
 
-#define COL_WIDTH 14
+#define COL_WIDTH 20
+#define FLIGHT_SPEED 120
+#define GAL_PER_HOUR 8.4
 
 using namespace std;
 
 double RoundToTwoPlaces(double val)
 {
     return round(val * 100) / 100;
+}
+
+double RoundToOnePlaces(double val)
+{
+    return round(val * 10) / 10;
 }
 
 void ClearInputStream()
@@ -40,51 +47,54 @@ bool ShouldRunAgain()
     return false;
 }
 
-int GetNumberOfQuarters(int &change)
+string FlightTimeString(double hours)
 {
-    int quart = change / 25;
-    change -= quart * 25;
-    return quart;
+    string flightTime = "";
+    
+    int hourFloor = floor(hours);
+    int minutes = (hours - hourFloor) * 60;
+    
+    flightTime += to_string(hourFloor);
+    flightTime += " hour(s) and ";
+    flightTime += to_string(minutes);
+    flightTime += " minute(s)";
+    
+    return flightTime;
 }
 
-int GetNumberOfDimes(int &change)
+double FlightTime(double distance)
 {
-    int dime = change / 10;
-    change -= dime * 10;
-    return dime;
+    return distance / FLIGHT_SPEED;
 }
 
-int GetNumberOfNickels(int &change)
+double GalRequired(double distance)
 {
-    int nick = change / 5;
-    change -= nick * 5;
-    return nick;
+    double fuelRequired = (FlightTime(distance) + 0.5) * GAL_PER_HOUR;
+    return fuelRequired;
 }
 
-void PrintChange(int change)
+void PrintAircraft(double distance)
 {    
-    cout << setw(COL_WIDTH) << "Quarters:" << GetNumberOfQuarters(change) << endl;
-    cout << setw(COL_WIDTH) << "Dimes:" << GetNumberOfDimes(change) << endl;
-    cout << setw(COL_WIDTH) << "Nickels:" << GetNumberOfNickels(change) << endl;
-    cout << setw(COL_WIDTH) << "Pennies:" << change << endl << endl;
+    cout << setw(COL_WIDTH) << "Flight time: " << FlightTimeString(FlightTime(distance)) << endl;
+    cout << setw(COL_WIDTH) << "Required fuel: " << RoundToOnePlaces(GalRequired(distance)) << " gallons" << endl << endl;
 }
 
 int main()
 {
-    double numOfCents = 0;
+    double distance = 0;
     
-    cout << "Change Calculator\n\n";
+    cout << "Aircraft Fuel Calculator\n\n";
     
     do
     {
-        numOfCents = 0;
+        distance = 0;
     
-    cout << "Enter number of cents (0-99): ";
-    cin >> numOfCents;
-    ClearInputStream();
+        cout << "Distance in nautical miles: ";
+        cin >> distance;
+        ClearInputStream();
 
-    
-    PrintChange(numOfCents);
+        
+        PrintAircraft(distance);
     }while(ShouldRunAgain());
     
     cout << endl << "Bye!\n";
