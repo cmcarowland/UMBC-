@@ -1,7 +1,7 @@
 /*
  * Raymond Rowland
  * 24AUG21
- * 
+ * Modify the program so it doesn't use a break or continue statement
  */
 #include <iostream>
 #include <cstdlib>
@@ -19,28 +19,29 @@ int main() {
     int number = rand() % upper_limit; // number is >= 0 and < upper_limit
     ++number;                          // number is >= 1 and <= upper_limit
 
-    int count = 1;
-    while (true) {
-        int guess;
+    int count = 0;
+    int guess = 0;
+    
+    while(guess != number)
+    {
         cout << "Your guess: ";
         cin >> guess;
+        ++count;
 
-        if (guess < 1 || guess > upper_limit) {
+        if (guess < 1 || guess > upper_limit) 
+        {
             cout << "Invalid guess. Try again.\n";
-            continue;
         }
-
-        if (guess < number) {
+        else if (guess < number) 
+        {
             cout << "Too low.\n";
         }
-        else if (guess > number) {
+        else if (guess > number) 
+        {
             cout << "Too high.\n";
         }
-        else {
-            cout << "You guessed it in " << count << " tries.\n\n";
-            break;
-        }
-        ++count;
     }
+
+    cout << "You guessed it in " << count << " tries.\n\n";
     cout << "Bye!\n\n";
 }
