@@ -37,23 +37,28 @@ bool ShouldRunAgain()
     return false;
 }
 
+string months[] = {"Janurary", "February","March","April","May","June","July","August","September","October","November","December"};
+int booksSold[12] = {0};
+
 int main()
 {
-    const int daphneInterest = 10;
-    double daphneBalance = 100;
+    srand(time(nullptr));
     
-    const double cleoInterest = 0.05;
-    double cleoBalance = 100;
-    int year = 0;
+    int annualIncome = 0;
     
-    do
-    {    
-        year++;
-        daphneBalance += daphneInterest;
-        cleoBalance += cleoBalance * cleoInterest;
-    }while(cleoBalance <= daphneBalance);
+    cout << "Enter Number of books sold per month" << endl;
+
+    for(int i = 0; i < 12; i++)
+    {
+        cout << setw(COL_WIDTH) << months[i] << ": ";
+        cin >> booksSold[i];
+        ClearInputStream();
+    }
     
-    cout << endl << "Years to overcome " << year << endl;
-    cout << "Cleo Balance   " << cleoBalance << endl;
-    cout << "Daphne Balance " << daphneBalance << endl;
+    for(int i = 0; i < 12; i++)
+    {
+        annualIncome += booksSold[i];
+    }
+    
+    cout << endl << "Total Sales : " << annualIncome << endl;
 }
