@@ -1,12 +1,9 @@
 /*
-* Author:  Anne Boehm
-* Date:    March 27, 2018
-* Purpose: This program uses the console to get the
-*          height and width of a rectangle from the
-*	       user. Then, it calculates the area of the
-*	       rectangle and displays the result.
-*/
-
+ * Raymond Rowland
+ * 24AUG21
+ * Validate user input is greater than 0 to calculate the area of a rectangle
+ * Changed nested if's to single statement and changed error message
+ */
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,9 @@
+/*
+ * Raymond Rowland
+ * 24AUG21
+ * Determine discount, Calculate discount, and total for the invoice 
+ * Replaced the if statements with a switch
+ */
 #include <iostream>
 #include <cmath>
 

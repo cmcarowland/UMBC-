@@ -1,3 +1,8 @@
+/*
+ * Raymond Rowland
+ * 23AUG21
+ * Calculate various properties of a circle 
+ */
 #include <iostream>
 #include <cmath>
 

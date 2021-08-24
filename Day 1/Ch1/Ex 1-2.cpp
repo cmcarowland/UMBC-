@@ -1,3 +1,8 @@
+/*
+ * Raymond Rowland
+ * 23AUG21
+ * First application from scratch 
+ */
 #include <iostream>
 using namespace std;
 

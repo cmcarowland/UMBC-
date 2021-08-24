@@ -1,8 +1,7 @@
 /*
  * Raymond Rowland
- * 23AUG21
- * Guess the number I am thinking game
- * Print out the number of guesses needed to get correct number
+ * 24AUG21
+ * 
  */
 #include <iostream>
 #include <cstdlib>

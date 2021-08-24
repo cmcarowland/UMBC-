@@ -1,3 +1,8 @@
+/*
+ * Raymond Rowland
+ * 24AUG21
+ * Determine discount, Calculate discount, and total for the invoice 
+ */
 #include <iostream>
 #include <cmath>
 
