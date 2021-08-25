@@ -6,6 +6,7 @@
  */
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
 
@@ -123,7 +124,7 @@ int main()
             valid_email = false;
         }
         
-        if((email.length - 1) - dotIndex < 2)
+        if((email.length() - 1) - dotIndex < 2)
         {
             cout << "Email domain must be at least 2 characters.\n";
             valid_email = false;

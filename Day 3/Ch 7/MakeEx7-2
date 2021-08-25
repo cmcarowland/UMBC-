@@ -1,0 +1,9 @@
+all: Ex_7-2 Validation
+
+Ex_7-2: Validation
+	@echo "Building Ex 7-2.cpp"
+	g++ "Ex 7-2.cpp" validation.o -o "Ex 7-2"
+
+Validation:
+	@echo "Building Validation.o"
+	g++ -c "validation.cpp" -o "validation.o"

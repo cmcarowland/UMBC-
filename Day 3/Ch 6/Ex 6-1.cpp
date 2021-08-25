@@ -42,8 +42,8 @@ int main() {
          << setw(7) << "Years"
          << setw(14) << "Future Value" << endl;
          
-    for(uint i = 0; i < investments.size(); i ++)
+    for(Investment i: investments)
     {
-        investments[i].Print();
+        i.Print();
     }
 }
