@@ -1,6 +1,6 @@
 /*
  * Raymond Rowland
- * 24AUG21
+ * 25AUG21
  * Modify a program that calculates MPG so it :
  *   - Starts by displaying the data in the trips.txt file
  *   - Shows all file data after a new addition

@@ -1,6 +1,6 @@
 /*
  * Raymond Rowland
- * 24AUG21
+ * 25AUG21
  * Modify a program that calculates MPG so it :
  *   - validates the data entered by the user
  *      -Discards any extra input
