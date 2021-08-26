@@ -23,12 +23,18 @@ struct Movie {
     string title = "";
     unsigned int year = 0;
     unsigned int stars = 0;
-    bool equals(Movie&);              // member function declaration
+    bool equals(Movie&);
+    bool operator==(const Movie&);              // member function declaration
 };
 
 // member function definition
 bool Movie::equals(Movie& to_compare) {
     return (title == to_compare.title && year == to_compare.year);
+}
+
+bool Movie::operator==(const Movie& to_compare)
+{
+	return (title == to_compare.title && year == to_compare.year);
 }
 
 const string movies_file = "movies.txt";
@@ -97,7 +103,7 @@ Movie get_movie() {
 
 void add_movie(vector<Movie>& movies) {
     Movie movie = get_movie();
-
+    
     // check if movie already exists
     bool already_exists = false;
     for (Movie& m : movies) {
@@ -120,7 +126,7 @@ void add_movie(vector<Movie>& movies) {
 }
 
 int get_movie_number(const vector<Movie>& movies) {
-    int number;
+    uint number;
     while (true) {
         cout << "Number: ";
         cin >> number;
