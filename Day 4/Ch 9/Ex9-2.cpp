@@ -1,3 +1,8 @@
+/*
+ * Raymond Rowland
+ * 26AUG21
+ * Modify movie list to use an enumeration for menu options.
+ */
 #include <iostream>
 #include <fstream>
 #include <sstream> 
