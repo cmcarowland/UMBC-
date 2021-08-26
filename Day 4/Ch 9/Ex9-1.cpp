@@ -50,6 +50,7 @@ void read_accounts_from_file(vector<Account> &accounts)
 		{
 			accounts.push_back(a);
 		}
+		
 		input_file.close();
 	}
 }
@@ -60,6 +61,7 @@ void display_accounts(vector<Account> &accounts)
 	cout << left
 			<< setw(col_width * 3) << "Name"
 			<< setw(col_width * 4) << "Email" << endl;
+			
 	for(auto a: accounts)
 	{
 		cout << setw(col_width * 3) << a.first + ' ' + a.last
@@ -71,7 +73,8 @@ void display_accounts(vector<Account> &accounts)
 
 void write_account_to_file(const string first, const string last, const string password, const string email) {
 	ofstream output_file(accounts_file, ios::app);
-	if (output_file) {
+	if (output_file) 
+	{
 		output_file << first << '\t'
 			<< last << '\t'
 			<< password << '\t'
@@ -84,7 +87,7 @@ void write_accounts_to_file(vector<Account> accounts) {
 	ofstream output_file(accounts_file);
 	if (output_file) {
 		for(auto a: accounts)
-			{
+		{
 			output_file << a.first << '\t'
 				<< a.last << '\t'
 				<< a.pw << '\t'
