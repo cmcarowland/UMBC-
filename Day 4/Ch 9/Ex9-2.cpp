@@ -6,6 +6,13 @@
 #include <vector>
 
 using namespace std;
+enum  class Commands
+{
+	Exit,
+	View,
+	Add,
+	Delete
+};
 
 struct Movie {
     string title = "";
@@ -133,36 +140,42 @@ void delete_movie(vector<Movie>& movies) {
 
 void display_menu() {
     cout << "COMMANDS\n"
-        << "v - View movie list\n"
-        << "a - Add a movie\n"
-        << "d - Delete a movie\n"
-        << "x - Exit\n\n";
+        << "1 - View movie list\n"
+        << "2 - Add a movie\n"
+        << "3 - Delete a movie\n"
+        << "0 - Exit\n\n";
 }
 
 int main() {
+	Commands commandEnum = Commands::View;
+    int command = 0;
+    
     cout << "The Movie List program\n\n";
     display_menu();
     vector<Movie> movies = read_movies_from_file();
-    char command = 'v';
-    while (command != 'x') {
+    
+    while (commandEnum != Commands::Exit) {
         cout << "Command: ";
         cin >> command;
-        switch (command) {
-        case 'v':
-            view_movies(movies);
-            break;
-        case 'a':
-            add_movie(movies);
-            break;
-        case 'd':
-            delete_movie(movies);
-            break;
-        case 'x':
-            cout << "Bye!\n\n";
-            break;
-        default:
-            cout << "Not a valid command. Please try again.\n\n";
-            break;
+        commandEnum = static_cast<Commands>(command);
+        
+        switch (commandEnum) 
+        {
+			case Commands::View:
+				view_movies(movies);
+				break;
+			case Commands::Add:
+				add_movie(movies);
+				break;
+			case Commands::Delete:
+				delete_movie(movies);
+				break;
+			case Commands::Exit:
+				cout << "Bye!\n\n";
+				break;
+			default:
+				cout << "Not a valid command. Please try again.\n\n";
+				break;
         }
     }
 }

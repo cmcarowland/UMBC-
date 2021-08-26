@@ -31,10 +31,10 @@ struct Account
 	string pw = "";
 	string email = "";
 	
-	bool equals(Account&);
+	bool equals(const Account&);
 };
 
-bool Account::equals(Account &toCompare)
+bool Account::equals(const Account &toCompare)
 {
 	return email == toCompare.email;
 }
