@@ -16,6 +16,7 @@ bool IsEven(int num)
 
 int main()
 {
+	cout << "Even or Odd Checker\n\n";
 	int userInput = 0;
 	cout << "Enter an integer: ";
 	cin >> userInput;
