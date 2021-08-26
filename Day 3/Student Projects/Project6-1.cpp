@@ -31,7 +31,7 @@ string CleanLine(string line)
 		o = line.find(openGator, c);
 	}
 	
-	return isListItem ? "* " + line.substr(c, o - c) : line.substr(c, o - c);
+	return isListItem ? "* " + line.substr(c, o - c) : line.substr(c, o - c );
 }
 
 int main()
@@ -44,7 +44,7 @@ int main()
 	{
 		while(getline(iFile, line, '\r'))
 		{
-			cout << CleanLine(line) << "\n";
+			cout << CleanLine(line) << endl;
 		}
 	}
 	
