@@ -1,0 +1,1 @@
+I have not used command line args in c++ up until now and found it wanted me to have int argc as normal but gave me the ability to use char* argv[] verses char** allowing subscript notation int the array.

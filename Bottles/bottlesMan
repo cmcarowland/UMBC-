@@ -1,0 +1,17 @@
+.\" Manpage for nuseradd.
+.\" Contact vivek@nixcraft.net.in to correct errors or typos.
+.TH man 1 "27 AUG 2021" "1.0" "bottles man page"
+.SH NAME
+bottles \- Sing the song 99 bottles 
+.SH SYNOPSIS
+bottles [Number Of Bottles]
+.SH DESCRIPTION
+Enjoy this wonderful car ride classic as we wistfully count down the bottles on the wall.
+.SH OPTIONS
+Number of Bottles 
+.SH SEE ALSO
+AA advisor, you may have a problem. 
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Raymond Rowland
