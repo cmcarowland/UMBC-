@@ -1,13 +1,18 @@
-all: Ex_7-6 Taxes Console
+all: Project7-6
 
-Ex_7-6: Taxes Console
+Project7-6: taxes.o console.o
 	@echo "Building Project 7-6.cpp"
-	@g++ -o Project7-6 "Project7-6.cpp" Taxes.o console.o
+	@g++ -o Project7-6 "Project7-6.cpp" taxes.o console.o
 
-Taxes: Console
+taxes.o: console.o
 	@echo "Building Taxes"
-	@g++ -c -o Taxes.o "Taxes.cpp"
+	@g++ -c -o taxes.o "Taxes.cpp"
 
-Console:
+console.o:
 	@echo "Building Console"
 	@g++ -c -o console.o console.cpp
+
+clean:
+	@echo "Cleaning ..."
+	rm *.o
+	rm Project7-6
