@@ -41,7 +41,7 @@ bool Account::equals(const Account &toCompare)
 
 void read_accounts_from_file(vector<Account> &accounts)
 {
-	accounts.empty();
+	accounts.clear();
 	ifstream input_file(accounts_file);
 	if (input_file) 
 	{
