@@ -1,3 +1,17 @@
+/*
+ * Raymond Rowland
+ * 30AUG21
+ * Ex 11-3
+ * Use a function object and a lambda expression with the Test Scores program
+ * - Define structure named MinScore with a member named minimum that stores an integer value
+ *   - Structure constructor accepts an int and assigns to the minimum member
+ * - Overload the function call operator for the structure so it accepts an int value and returns a bool to indicate if the int is greater than or equal to the minimum
+ *   -  Keep minimum value from being modified
+ * - Comment out code that displays the number of scores that are equal to 100
+ * - Add code that uses count_if with the MinScore structure to get the number of scores 90 or above
+ * - Do the same for scores 80 or above
+ * - Modify the code so it does not use the structure and uses lambda instead
+ */
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -5,6 +19,21 @@
 #include <numeric>
 
 using namespace std;
+
+struct MinScore
+{
+	int minimum = 0;
+	
+	MinScore(int m)
+	{
+		minimum = m;
+	}
+	
+	bool operator () (int i) const
+	{
+		return i >= minimum;
+	}
+};
 
 int sort_descending(int i, int j) {
 	return i > j;
@@ -62,8 +91,13 @@ int main()
 		cout << "Lowest score: " << *min_iter << endl;
 
 		// display number of scores equal to 100
-		int count_100 = count(scores.begin(), scores.end(), 100);
-		cout << "This student has " << count_100 << " perfect score(s)!" << endl;
+		//int count_100 = count(scores.begin(), scores.end(), 100);
+		//cout << "This student has " << count_100 << " perfect score(s)!" << endl;
+		//cout << "Scores 90 or above: " << count_if(scores.begin(), scores.end(), MinScore(90)) << endl;
+		//cout << "Scores 80 or above: " << count_if(scores.begin(), scores.end(), MinScore(80)) << endl;
+
+		cout << "Scores 90 or above: " << count_if(scores.begin(), scores.end(), [&](int i) { return i >= 90; }) << endl;
+		cout << "Scores 80 or above: " << count_if(scores.begin(), scores.end(), [&](int i) { return i >= 80; }) << endl;
 
         // calculate total of all scores
         int total = accumulate(scores.begin(), scores.end(), 0);
