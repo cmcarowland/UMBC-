@@ -11,7 +11,7 @@ private:
     double celsius;
     double fahrenheit;
     
-    double roundTo2(double value);
+    double roundTo1(double value);
 
 public:
 	Temp();
