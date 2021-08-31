@@ -1,7 +1,7 @@
 /*
  * Raymond Rowland
  * 31AUG21
- * Ex 13-1
+ * Ex 13-2
  * Add a custom exception handler to a new version of the word document
  * - Define a structure names FileNotFound
  *   - Members message and filename
