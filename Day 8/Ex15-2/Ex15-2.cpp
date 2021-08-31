@@ -1,3 +1,18 @@
+/*
+ * Raymond Rowland
+ * 01SEP21
+ * Ex 15-2
+ * Work with abstract classes and control overriding
+ * - Change get_description to be pure abstract
+ * - Attempt to run and fail because p1 was a Product which is an abstract object
+ * - Use the override and final keywords
+ *  - Add override and final to movie and book get_description
+ *  - Create new header named UsedBook
+ *  - Use the book product constructor 
+ *  - Attempt to override the get_description method and see it fails
+ *  - remove final keyword from book get_description
+ */
+
 #include <iostream>
 #include <string>
 #include "Product.h"
