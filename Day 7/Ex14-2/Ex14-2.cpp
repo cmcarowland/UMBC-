@@ -2,10 +2,17 @@
  * Raymond Rowland
  * 31AUG21
  * Ex 14-2
+ * - Create an objected oriented Convert Temperatures program
+ * - Create an object named Temp with:
+ *   - two private doubles for C and F
+ *   - Getters and setters for private members
+ *   - Default constructor that creates the object with water freezing point 32 f 0 c
+ *   - Round all conversions to 2 places
  */
 
 #include <iostream>
 #include <cmath>
+#include "Temp.h"
 
 using namespace std;
 
@@ -46,26 +53,25 @@ void convert_temp() {
     cout << "Enter a menu option: ";
     cin >> option;
 
-    double f = 0.0;
-    double c = 0.0;
+    double userInput = 0.0;
+    Temp t;
+    
     switch (option) {
     case 1:
         cout << "Enter degrees Fahrenheit: ";
-        cin >> f;
+        cin >> userInput;
 
-        c = to_celsius(f);
-        c = round(c * 10) / 10;
+		t.set_fahrenheit(userInput);
 
-        cout << "Degrees Celsius: " << c << endl;
+        cout << "Degrees Celsius: " << t.get_celsius() << endl;
         break;
     case 2:
         cout << "Enter degrees Celsius: ";
-        cin >> c;
+        cin >> userInput;
 
-        f = to_fahrenheit(c);
-        f = round(f * 10) / 10;
+		t.set_celsius(userInput);
 
-        cout << "Degrees Fahrenheit: " << f << endl;
+        cout << "Degrees Fahrenheit: " << t.get_fahrenheit() << endl;
         break;
     default:
         cout << "You must enter a valid menu number.\n";
@@ -73,12 +79,3 @@ void convert_temp() {
     }
 }
 
-double to_celsius(double fahrenheit) {
-    double celsius = (fahrenheit - 32.0) * 5.0 / 9.0;
-    return celsius;
-}
-
-double to_fahrenheit(double celsius) {
-    double fahrenheit = celsius * 9.0 / 5.0 + 32.0;
-    return fahrenheit;
-}
