@@ -1,67 +1,102 @@
+/*
+ * Raymond Rowland
+ * 31AUG21
+ * Ex 12-3
+ * Modify the test scores program so it uses a two dimensional array to score a fixed number of scores for multiple students
+ * - Modify the code in main so it defines a two-dimensional array that can store up to 10 students with 3 score per student
+ * - Modify the instrustions of the program so the indicate max students
+ * - Modify the loop so when the user enters -1 or until the user enters the max number of students
+ *   - Within this loop add a nested loop that contains code that gets the scores for each student
+ * - Add any additional code for the shile loop to work correctly
+ * - Modify the code that checks if any scores have been entered so it checks the counter variable for the number of students
+ * - Modify the code thats executed if scores have been entered so it loops through the array for each student that has scores and displays those scores and the average score on the console
+ */
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-int calculate_total(int scores[], int score_count);
+int calculate_total(int scores[], int count);
+const int max_student_number = 10;
+const int max_grade_per_student = 3;
 
-int main() {
-    const int capacity = 50;
-    int scores[capacity] { 0 };  // set each element in array to 0
+int main() 
+{
+    int scores[max_student_number][max_grade_per_student] { 0 };  // set each element in array to 0
+	int scores_count[max_student_number] { 0 };
 
     cout << "The Test Scores program\n\n";
 
-    cout << "Enter test scores (" << capacity << " max).\n"
+    cout << "Enter test scores (" << max_grade_per_student << " max).\n"
          << "Make sure each score is between 0 and 100.\n"
          << "To end the program, enter -1.\n\n";
 
     // initialize counter and score variables
-    int score_count = 0, score = 0;
+    int score_count = 0, score = 0, student_count = 0;
 
     // prevent out of bounds access by making sure
     // score count is less than capacity
-    while (score != -1 && score_count < capacity) {
-        cout << "Enter score: ";
-        cin >> score;
+    while (student_count < max_student_number && score != -1) {
+		cout << "Enter Scores for Student " << student_count + 1 << endl;
+		while (score_count < max_grade_per_student && score != -1) 
+		{
+			cout << "Enter score: ";
+			cin >> score;
 
-        if (cin.fail()) {
-            cin.clear();             // clear bad input flag
-            cin.ignore(1000, '\n');  // discard input up to end of line
-            cout << "Invalid number. Try again.\n";
-        }
-        else if (score > 100) {
-            cout << "Score must be from 0 to 100. Try again.\n";
-        }
-        else if (score < -1) {
-            cout << "Score can't be a negative number. Try again.\n";
-        }
-        else if (score > -1) {
-            scores[score_count] = score;   // store score in array
-            ++score_count;                 // increment score count
-        }
+			if (cin.fail()) {
+				cin.clear();             // clear bad input flag
+				cin.ignore(1000, '\n');  // discard input up to end of line
+				cout << "Invalid number. Try again.\n";
+			}
+			else if (score > 100) {
+				cout << "Score must be from 0 to 100. Try again.\n";
+			}
+			else if (score < -1) {
+				cout << "Score can't be a negative number. Try again.\n";
+			}
+			else if (score > -1) {
+				scores[student_count][score_count] = score;   // store score in array
+				++score_count;                 // increment score count
+				scores_count[student_count] = score_count;
+			}
+		}
+		student_count++;
+		score_count = 0;
+		cout << endl;
     }
     cout << endl;
 
-    if (score_count == 0) {
+    if (student_count == 0) {
         cout << "No scores entered.\n\n";
     }
     else {
         // calculate total and average scores
-        double total = calculate_total(scores, score_count);
-        double average = total / score_count;
-        average = round(average * 10) / 10;
-
-        // display the score count, score total, and average score
-        cout << "Score count:   " << score_count << endl
-             << "Score total:   " << total << endl
-             << "Average score: " << average << endl;
+        for(int i = 0; i < max_student_number; i++)
+        {
+			double total = calculate_total(scores[i], scores_count[i]);
+			
+			if(total == 0)
+				break;
+				
+			double average = total / scores_count[i];
+			average = round(average * 10) / 10;
+			cout << "Student " << i +1 << ": "; 
+			for(auto x: scores[i])
+			{
+				if(x > 0)
+					cout << x << " ";
+			}
+			cout << "\tAverage score: " << average << endl;
+		}
     }
 
     return 0;
 }
 
-int calculate_total(int scores[], int score_count) {
+int calculate_total(int scores[], int count) 
+{
     int total = 0.0;
-    for (int i = 0; i < score_count; ++i) {
+    for (int i = 0; i < count; ++i) {
         total += scores[i];
     }
     return total;
