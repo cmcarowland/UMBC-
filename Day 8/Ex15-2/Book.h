@@ -5,7 +5,7 @@
 #include "Product.h"
 
 class Book : public Product {
-protected:
+private:
     std::string author;
 public:
     Book(std::string name = "", double price = 0.0, 

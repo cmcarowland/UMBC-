@@ -13,7 +13,7 @@ public:
     }
 
     std::string get_description() const override {
-        return name + " by " + author + " (USED)";
+        return Book::get_description() + " (USED)";
     }
 };
 #endif // MURACH_BOOK_H
