@@ -47,9 +47,9 @@ int main() {
 		cout << "Exiting program..." << endl;
 		return -1;
 	}
-	catch(const exception& e)
+	catch(...)
 	{
-		throw e;
+		throw;
 	}
 
 	cout << endl;
@@ -97,13 +97,13 @@ vector<string> load_words(string filename) {
 			words.push_back(new_word);      // add word 
 		}
 		infile.close();
+	
+		return words;
 	}
 	else
 	{
 		throw FileNotFound {"File Not Found", filename }; 
 	}
-	
-	return words;
 }
 
 map<string, int> get_word_count(const vector<string>& words) {
