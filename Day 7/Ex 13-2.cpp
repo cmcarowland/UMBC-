@@ -2,7 +2,15 @@
  * Raymond Rowland
  * 31AUG21
  * Ex 13-1
- * 
+ * Add a custom exception handler to a new version of the word document
+ * - Define a structure names FileNotFound
+ *   - Members message and filename
+ * - Modify the load_words function so the vector is only returned if the file is found.
+ * - Add code to load_words thats executed if the file isn't found
+ *   - Creates a file not found object, assign the values and throw the object.
+ * - Add a try catch statement to the main function so the try clause conatins the statement that calls the load_words function.
+ * - Add code to the catch statement that cataches a FileNotFound exception, this code should end by exiting the program.
+ * - Add a second catch that catches any other exceptions and rethrow the exception 
  */
 #include <iostream>
 #include <fstream>
@@ -27,7 +35,22 @@ int main() {
 	cout << "Enter a file name: ";
 	cin >> filename;
 
-	auto words = load_words(filename);
+	vector<string> words;
+	try
+	{
+		words = load_words(filename);
+	}
+	catch(const FileNotFound& e)
+	{
+		cout << e.message << endl;
+		cout << "You entered: " + e.filename << endl;
+		cout << "Exiting program..." << endl;
+		return -1;
+	}
+	catch(const exception& e)
+	{
+		throw e;
+	}
 
 	cout << endl;
 	cout << words.size() << " WORDS: ";
@@ -75,6 +98,11 @@ vector<string> load_words(string filename) {
 		}
 		infile.close();
 	}
+	else
+	{
+		throw FileNotFound {"File Not Found", filename }; 
+	}
+	
 	return words;
 }
 
