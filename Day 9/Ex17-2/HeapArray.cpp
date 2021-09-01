@@ -18,3 +18,27 @@ int& HeapArray::operator[] (int i) { return arr[i]; }
 int HeapArray::size() const { return array_size; }
 int* HeapArray::begin() { return arr; }
 int* HeapArray::end() { return arr + array_size; }
+
+
+HeapArray::HeapArray(const HeapArray &toCopy)
+{
+	array_size = toCopy.array_size;
+	arr = new int[array_size];
+	for(int i = 0; i < array_size; i++)
+	{
+		arr[i] = toCopy.arr[i];
+	}
+}
+
+HeapArray& HeapArray::operator= (const HeapArray &toCopy)
+{
+	int* temp = new int[array_size];
+	for(int i = 0; i < array_size; i++)
+	{
+		temp[i] = toCopy.arr[i];
+	}
+	delete[] arr;
+	arr = temp;
+
+	return *this;
+}

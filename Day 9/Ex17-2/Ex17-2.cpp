@@ -1,3 +1,11 @@
+/*
+Raymond Rowland
+Ex 17-2
+Implement the rule of Three
+- Add declaration for copy constructor on heap array 
+- Add declaration for copy assignment on heap array
+- Recompile and run program, no errors should be present
+*/
 #include<iostream>
 #include <algorithm>
 #include <numeric>
