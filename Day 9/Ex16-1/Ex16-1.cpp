@@ -1,3 +1,19 @@
+/*
+ * Raymond Rowland
+ * 01SEP21
+ * Ex 16-1
+ * Enhance the future value program
+ * - Add the console class
+ *   - Modify the code so it stores the function declarations in a class names Console instead of the console namespace
+ *   - Declare all three functions static with public access
+ *   - Change the implementation file for the console to utilize Console class
+ * - Create an instance of Console names c and use it's static methods on that object
+ * - Add finance class
+ *   - Declare calculate_future_value as public static
+ *   - Create the definition for calulate_future_value function in the Finance.cpp
+ * - Modify the main() so it uses the static calculate_future_value() function that is stored in the finance class.
+ */
+ 
 #include <iostream>
 #include <iomanip>
 #include <string>

@@ -1,3 +1,11 @@
+/*
+ * Raymond Rowland
+ * 01SEP21
+ * Ex 16-2
+ * Add operators to a Circle object
+ * - Overload + - << and ++prefix operators in the circle class.
+ */
+ 
 #include <iostream>
 #include <cmath>
 #include "circle.h"
