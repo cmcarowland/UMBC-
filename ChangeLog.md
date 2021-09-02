@@ -1,6 +1,11 @@
 # Change Log
 
 ## NEW
+-  Final assessment complete
+-  Implemented Command line arguments for autoplay
+-  Added man pages
+-  Implemented time tracking between valid guesses
+-  Supports an answer file .mm to populate the answer
 -  Added linear_search function that returns the index of the first found, returns -1 if not found.
 -  Implemented template method for bubble sort.
 -  Added function to get the weight at the beginning of each month.
