@@ -1,0 +1,25 @@
+.TH man 1 "02 SEP 2021" "1.0" "Mastermind man page"
+.SH NAME
+mastermind \- A number guessing game 
+.SH SYNOPSIS
+mastermind [autoplay]
+.SH DESCRIPTION
+Execute mastermind without arguments to guess a four digit number.
+The program will tell you how many tries you took and how long between valid attempts.
+Each guess will return the number of correct digits in the correct positions as red(good) and white(bad).
+AUTOPLAY
+See how well the computer can guess its own number.
+Run mastermind with the autoplay command line argument
+.SH OPTIONS
+autoplay - Auto guess the numbers 
+.SH ADDITIONAL FEATURES
+Completed the man documentation +2
+Added command line agrument autoplay that plays the game itself +5
+Track the time it takes the User/AI to submit a valid guess and display the average at the end +5
+Supports an answer file named .mm to get the answer +5
+.SH SEE ALSO
+None
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Raymond Rowland
