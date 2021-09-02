@@ -1,10 +1,16 @@
+/*
+Raymond Rowland
+Ex 18-1
+- Create a function template
+*/
 #include <iostream>
 
 using namespace std;
 
-void bubble_sort(int arr[], int size) {
+template<typename T>
+void bubble_sort(T arr[], int size) {
 	bool is_swap;
-	int temp;
+	T temp;
 	do {
 		is_swap = false;                        // reset swap flag each iteration 
 		for (int i = 0; i < (size - 1); ++i) {  // stop at 2nd to last 
@@ -28,7 +34,7 @@ int main()
 	}
 	cout << endl;
 
-	bubble_sort(temps, size);
+	bubble_sort<int>(temps, size);
 	cout << "Sorted temperatures: ";
 	for (int temp : temps) {
 		cout << temp << ' ';
@@ -43,6 +49,12 @@ int main()
 	cout << endl;
 
 	// code to sort and print array
+	bubble_sort<double>(prices, size);
+	cout << "Sorted Prices: ";
+	for (double price : prices) {
+		cout << price << ' ';
+	}
+	cout << endl;
 
     return 0;
 }
