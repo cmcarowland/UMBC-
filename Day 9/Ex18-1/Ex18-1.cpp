@@ -1,8 +1,11 @@
 /*
-Raymond Rowland
-Ex 18-1
-- Create a function template
-*/
+ * Raymond Rowland
+ * Ex 18-1
+ * Create a function template
+ * - Convert the bubble_sort function to a template
+ * - Add code to sort and print the prices array 
+ * 
+ */
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,10 @@
+/*
+ * Raymond Rowland
+ * Ex 18-2
+ * Add a function to the heaparray class template 
+ * - Add a linear_search function that loops through the array and returns the index of the item or -1 if not found
+ * - Modify the code that displays min and max values first location in the array.
+ */
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -29,8 +36,8 @@ int main() {
     cout << "Number of sensor readings over " << num_days
         << " days: " << data.size() << endl;
     cout << "Average reading: " << (total / data.size()) << endl;
-    cout << "Lowest reading: " << *min << endl;
-    cout << "Highest reading: " << *max << endl << endl;
+    cout << "Lowest reading: " << *min << " found at " << data.linear_search(*min) << " seconds" << endl;
+    cout << "Highest reading: " << *max << " found at " << data.linear_search(*max) << " seconds" << endl << endl;
 }
 
 void load_sensor_data(HeapArray<int>& data) { // simulate sensor data

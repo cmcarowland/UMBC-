@@ -15,6 +15,7 @@ public:
     ~HeapArray();                           // destructor
     HeapArray& operator=(const HeapArray& tocopy);  // copy assignment
     HeapArray& operator=(HeapArray&& tomove);       // move assignment
+	int linear_search(T);
 
     // inline definitions
     T& operator[](int i) { return arr[i]; }  // subscript operator
@@ -80,6 +81,18 @@ HeapArray<T>& HeapArray<T>::operator= (HeapArray&& tomove) { // MOVE
         tomove.arr = nullptr;
     }
     return *this;                           // return a self-reference
+}
+
+template<typename T>
+int HeapArray<T>::linear_search(T toFind)
+{
+	for(int i = 0; i < array_size; i++)
+	{
+		if(arr[i] == toFind)
+			return i;
+	}
+	
+	return -1;
 }
 
 #endif // MURACH_HEAP_ARRAY_H
