@@ -114,14 +114,16 @@ bool CorrectAnswer(string correct, string guess)
 		if(correct[i] == guess[i])
 		{
 			red++;
+			cout << "\033[1;31m " << guess[i] << "\033[0m";
 		}
 		else
 		{
 			white ++;
+			cout << "\033[1;37m " << guess[i] << "\033[0m";
 		}
 	}
 	
-	cout << red << " red, " << white << " white" << endl;
+	cout << endl << red << " red, " << white << " white" << endl;
 	
 	return correct == guess;
 }
